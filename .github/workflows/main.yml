@@ -21,7 +21,11 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
+  export:
 
+    runs-on: ubuntu-latest
+
+    steps:
     - uses: actions/upload-artifact@v7
       with:
         name: boardgame
