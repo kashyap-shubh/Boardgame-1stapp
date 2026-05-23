@@ -22,3 +22,7 @@ jobs:
       run: mvn -B package --file pom.xml
 
 
+    - uses: actions/upload-artifact@v7
+      with:
+        name: boardgame
+        path: target/*.jar
