@@ -8,6 +8,7 @@ on:
 jobs:
   build:
 
+    name: Shubham
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +24,9 @@ jobs:
 
   export:
 
+    name: Ankit
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
     - uses: actions/upload-artifact@v7
