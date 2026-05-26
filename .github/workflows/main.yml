@@ -1,20 +1,19 @@
-name: Java CI with Maven
+name: Java CI with Maven with mutiple jobs
 
 on:
   workflow_dispatch:
 
 jobs:
+
+  runs-on: ubuntu-latest
   checkout:
 
-    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
   java_install:
-
-    runs-on: ubuntu-latest
     needs: checkout
 
     steps:
@@ -27,8 +26,6 @@ jobs:
           cache: maven
 
   build:
-
-    runs-on: ubuntu-latest
     needs: java_install
 
     steps:
@@ -36,8 +33,6 @@ jobs:
         run: mvn -B package --file pom.xml
 
   upload:
-
-    runs-on: ubuntu-latest
     needs: build
 
     steps:
